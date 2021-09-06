@@ -1,6 +1,7 @@
 
 # Laravel REST API simple exercise
 
+<<<<<<< HEAD
 Following we have a sequence of requests that will be use to the API
 
 
@@ -46,6 +47,56 @@ GET /balance?account_id=100
 
 200 20
 
+=======
+
+# Laravel REST API simple exercise
+
+Following we have a sequence of requests that will be use to the API
+
+
+# Reset state before starting tests
+
+```
+POST /reset
+
+200 OK
+```
+
+--
+## Get balance for non-existing account
+
+```
+GET /balance?account_id=1234
+
+404 0
+```
+
+--
+## Create account with initial balance
+```
+POST /event {"type":"deposit", "destination":"100", "amount":10}
+
+201 {"destination": {"id":"100", "balance":10}}
+```
+
+
+## Deposit into existing account
+
+```
+POST /event {"type":"deposit", "destination":"100", "amount":10}
+
+201 {"destination": {"id":"100", "balance":20}}
+
+```
+
+## Get balance for existing account
+
+```
+GET /balance?account_id=100
+
+200 20
+
+>>>>>>> 72173668225d071f5086dbb7b004362ddd8d3209
 --
 # Withdraw from non-existing account
 
@@ -77,4 +128,8 @@ POST /event {"type":"transfer", "origin":"100", "amount":15, "destination":"300"
 POST /event {"type":"transfer", "origin":"200", "amount":15, "destination":"300"}
 
 404 0
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 72173668225d071f5086dbb7b004362ddd8d3209
