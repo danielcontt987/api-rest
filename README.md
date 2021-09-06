@@ -1,8 +1,7 @@
 
 # Laravel REST API simple exercise
 
-<<<<<<< HEAD
-Following we have a sequence of requests that will be use to the API
+HEAD Following we have a sequence of requests that will be use to the API
 
 
 # Reset state before starting tests
