@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BalanceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,8 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::post('/reset', 'ResetController@reset');
-
+Route::post('reset/', [ResetController::class, 'rest']);
 # Get balance for non-existing account
 //GET /balance?account_id=1234
 //404 0
@@ -31,7 +31,7 @@ Route::post('/reset', 'ResetController@reset');
 //GET /balance?account_id=100
 //200 20
 
-Route::post('/balances', 'BalanceController@show');
+Route::get('balance/', [BalanceController::class, 'show']);
 
 # Withdraw from non-existing account
 //POST /event {"type":"withdraw", "origin":"200", "amount":10}
@@ -52,6 +52,6 @@ Route::post('/balances', 'BalanceController@show');
 //POST /event {"type":"transfer", "origin":"200", "amount":15, "destination":"300"}
 //404 0
 
-Route::post('/event', 'EventController@store');
+Route::post('/event', [EventController::class, 'event']);
 
 
